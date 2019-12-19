@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = /home/cloud/Code/common/parser
+	branch = master
+	commit = 4a8e58ed4996fb8ef0382e184fd54a9aed931ad7
+	parent = 8e4464598c33a6e8e4af6117fc0fa50600c83f05
+	method = merge
+	cmdver = 0.4.0
