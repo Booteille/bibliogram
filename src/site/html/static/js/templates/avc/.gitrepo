@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = /home/cloud/Code/pinski-plugins/avc
+	branch = master
+	commit = 257d397349f09eae1f5da27b78f4d93993ea5497
+	parent = eb818bf63d0c8389c9997bf9735a75fec023c1c2
+	method = merge
+	cmdver = 0.4.0
