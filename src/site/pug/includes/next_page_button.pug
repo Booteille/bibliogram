@@ -1,0 +1,10 @@
+mixin next_page_button(user, url)
+	if user.timeline.hasNextPage()
+		div.next-page-container#next-page-container
+			-
+				const nu = new URL(url)
+				nu.searchParams.set("page", user.timeline.pages.length+1)
+			a(href=`${nu.search}#page-${user.timeline.pages.length+1}` data-page=(user.timeline.pages.length+1) data-username=(user.data.username))#next-page.next-page Next page
+	else
+		div.page-number.no-more-pages
+			span.number No more posts.

@@ -9,13 +9,13 @@ See also: [Invidious, a front-end for YouTube.](https://github.com/omarroth/invi
 ## Features
 
 - [x] View profile and timeline
+- [x] Infinite scroll
 - [x] User memory cache
 - [ ] Image disk cache
 - [ ] View post
 - [ ] Homepage
 - [ ] Optimised for mobile
 - [ ] Favicon
-- [ ] Infinite scroll
 - [ ] Settings (e.g. data saving)
 - [ ] Galleries
 - [ ] List view
