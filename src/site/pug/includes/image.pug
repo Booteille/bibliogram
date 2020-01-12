@@ -1,0 +1,5 @@
+mixin image(url)
+	-
+		let params = new URLSearchParams()
+		params.set("url", url)
+	img(src="/imageproxy?"+params.toString())&attributes(attributes)

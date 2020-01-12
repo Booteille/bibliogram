@@ -1,0 +1,15 @@
+//- Needs page, pageIndex
+
+include image.pug
+
+mixin timeline_page(page, pageIndex)
+	- const pageNumber = pageIndex + 1
+	if pageNumber > 1
+		.page-number(id=`page-${pageNumber}`)
+			span.number Page #{pageNumber}
+
+	.timeline-inner
+		- const suggestedSize = 300
+		each image in page
+			- const thumbnail = image.getSuggestedThumbnail(suggestedSize) //- use this as the src in case there are problems with srcset
+			+image(thumbnail.src)(alt=image.getAlt() width=thumbnail.config_width height=thumbnail.config_height srcset=image.getSrcset() sizes=`${suggestedSize}px`).image

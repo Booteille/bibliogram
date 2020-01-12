@@ -1,0 +1,8 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"checkJs": true,
+		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true
+	}
+}

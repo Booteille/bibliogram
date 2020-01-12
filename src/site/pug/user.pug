@@ -1,0 +1,49 @@
+include includes/timeline_page.pug
+
+- const numberFormat = new Intl.NumberFormat().format
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title
+			= `${user.data.full_name} (@${user.data.username}) | Bibliogram`
+		link(rel="stylesheet" type="text/css" href="/static/css/main.css")
+	body
+		.main-divider
+			header.profile-overview
+				.profile-sticky
+					+image(user.data.profile_pic_url)(width="150px" height="150px").pfp
+					//-
+						Instagram only uses the above URL, but an HD version is also available:
+						+image(user.data.profile_pic_url_hd)
+					h1.full-name= user.data.full_name
+					h2.username= `@${user.data.username}`
+					p.bio= user.data.biography
+					div.profile-counter
+						span(data-numberformat=user.posts).count #{numberFormat(user.posts)}
+						|
+						| posts
+					div.profile-counter
+						span(data-numberformat=user.following).count #{numberFormat(user.following)}
+						|
+						| following
+					div.profile-counter
+						span(data-numberformat=user.followedBy).count #{numberFormat(user.followedBy)}
+						|
+						| followed by
+
+			main.timeline
+				each page, pageIndex in user.timeline.pages
+					+timeline_page(page, pageIndex)
+
+				if user.timeline.hasNextPage()
+					div.next-page-container
+						-
+							const nu = new URL(url)
+							nu.searchParams.set("page", user.timeline.pages.length+1)
+						a(href=`${nu.search}#page-${user.timeline.pages.length+1}` data-cursor=user.timeline.page_info.end_cursor)#next-page.next-page Next page
+				else
+					div.page-number.no-more-pages
+						span.number No more posts.

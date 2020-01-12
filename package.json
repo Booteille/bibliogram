@@ -1,0 +1,18 @@
+{
+  "name": "bibliogram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd src/site && node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "AGPL-3.0-only",
+  "dependencies": {
+    "gm": "^1.23.1",
+    "node-dir": "^0.1.17",
+    "node-fetch": "^2.6.0",
+    "pinski": "github:cloudrac3r/pinski#oop"
+  }
+}
