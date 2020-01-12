@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = /home/cloud/Code/pinski-plugins/elemjs
+	branch = master
+	commit = 20ef654b4c572cfdb6ca7fa27e04326e7eab1be2
+	parent = dce68b9707f1c0a04d828dac549666c70583e624
+	method = merge
+	cmdver = 0.4.0
