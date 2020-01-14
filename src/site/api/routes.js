@@ -1,8 +1,9 @@
+const constants = require("../../lib/constants")
 const {fetchUser} = require("../../lib/collectors")
 const {render} = require("pinski/plugins")
 
 module.exports = [
-	{route: "/u/([\\w.]+)", methods: ["GET"], code: async ({url, fill}) => {
+	{route: `/u/(${constants.external.username_regex})`, methods: ["GET"], code: async ({url, fill}) => {
 		const params = url.searchParams
 		const user = await fetchUser(fill[0])
 		const page = +params.get("page")
@@ -11,7 +12,7 @@ module.exports = [
 		}
 		return render(200, "pug/user.pug", {url, user})
 	}},
-	{route: "/fragment/user/([\\w.]+)/(\\d+)", methods: ["GET"], code: async ({url, fill}) => {
+	{route: `/fragment/user/(${constants.external.username_regex})/(\\d+)`, methods: ["GET"], code: async ({url, fill}) => {
 		const user = await fetchUser(fill[0])
 		const pageNumber = +fill[1]
 		const pageIndex = pageNumber - 1

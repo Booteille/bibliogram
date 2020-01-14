@@ -16,10 +16,10 @@ html
 		.main-divider
 			header.profile-overview
 				.profile-sticky
-					+image(user.data.profile_pic_url)(width="150px" height="150px").pfp
+					img(src=user.proxyProfilePicture width="150px" height="150px" alt=`${user.data.full_name}'s profile picture.`).pfp
 					//-
-						Instagram only uses the above URL, but an HD version is also available:
-						+image(user.data.profile_pic_url_hd)
+						Instagram only uses the above URL, but an HD version is also available.
+						The alt text is pathetic, I know. I don't have much to work with.
 					h1.full-name= user.data.full_name
 					h2.username= `@${user.data.username}`
 					p.bio= user.data.biography
@@ -35,6 +35,8 @@ html
 						span(data-numberformat=user.followedBy).count #{numberFormat(user.followedBy)}
 						|
 						| followed by
+					div.links
+						a(rel="alternate" type="application/rss+xml" href=`/u/${user.data.username}/rss.xml`) RSS
 
 			main#timeline.timeline
 				each page, pageIndex in user.timeline.pages

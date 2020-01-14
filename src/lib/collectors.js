@@ -5,7 +5,7 @@ const InstaCache = require("./cache")
 const {User} = require("./structures")
 require("./testimports")(constants, request, extractSharedData, InstaCache, User)
 
-const cache = new InstaCache(600e3)
+const cache = new InstaCache(constants.resource_cache_time)
 
 function fetchUser(username) {
 	return cache.getOrFetch("user/"+username, () => {

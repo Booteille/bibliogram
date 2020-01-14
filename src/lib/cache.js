@@ -22,6 +22,10 @@ class InstaCache {
 		return this.cache.get(key).data
 	}
 
+	getTtl(key, factor = 1) {
+		return Math.max((Math.floor(Date.now() - this.cache.get(key).time) / factor), 0)
+	}
+
 	/**
 	 * @param {string} key
 	 * @param {any} data
