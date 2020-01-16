@@ -3,8 +3,8 @@ const {proxyImage} = require("../utils/proxyurl")
 const {compile} = require("pug")
 
 const rssDescriptionTemplate = compile(`
-img(alt=alt src=src)
 p(style='white-space: pre-line')= caption
+img(alt=alt src=src)
 `)
 
 class GraphImage {
