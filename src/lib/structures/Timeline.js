@@ -51,7 +51,7 @@ class Timeline {
 			feed_url: `${config.website_origin}/u/${this.user.data.username}/rss.xml`,
 			site_url: config.website_origin,
 			description: this.user.data.biography,
-			image_url: this.user.data.profile_pic_url,
+			image_url: config.website_origin+this.user.proxyProfilePicture,
 			pubDate: new Date(this.user.cachedAt),
 			ttl: this.user.getTtl(1000*60) // scale to minute
 		})

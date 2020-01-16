@@ -60,7 +60,7 @@ class GraphImage {
 	getFeedData() {
 		return {
 			title: this.getIntroduction() || "No caption provided",
-			description: rssDescriptionTemplate({src: this.data.display_url, alt: this.getAlt(), caption: this.getCaption()}),
+			description: rssDescriptionTemplate({src: config.website_origin+proxyImage(this.data.display_url), alt: this.getAlt(), caption: this.getCaption()}),
 			author: this.data.owner.username,
 			url: `${config.website_origin}/p/${this.data.shortcode}`,
 			guid: `${config.website_origin}/p/${this.data.shortcode}`,
