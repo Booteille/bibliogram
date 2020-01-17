@@ -14,6 +14,7 @@ See also: [Invidious, a front-end for YouTube.](https://github.com/omarroth/invi
 - [x] RSS (latest 12 posts)
 - [ ] Image disk cache
 - [ ] View post
+- [ ] Clickable usernames and hashtags
 - [ ] Homepage
 - [ ] Proper error checking
 - [ ] Optimised for mobile
@@ -25,7 +26,7 @@ See also: [Invidious, a front-end for YouTube.](https://github.com/omarroth/invi
 - [ ] IGTV
 - [ ] Public API
 - [ ] Rate limiting
-- [ ] Explore tags
+- [ ] Explore hashtags
 - [ ] Explore locations
 - [ ] _more..._
 
@@ -33,13 +34,16 @@ These features may not be able to be implemented for technical reasons:
 
 - Stories
 
-These features will not be added:
+These features will not be added, unless you ask _reallllly_ nicely:
 
 - Comments
+- Tagging users
 
 ## Instances
 
-There is currently no official Bibliogram instance. You will have to run your own, or find someone else's.
+There is currently no official Bibliogram instance.
+
+Perflyst has hosted an instance on https://bibliogram.snopyta.org ([example page](https://bibliogram.snopyta.org/u/instagram)), but this is not managed by me and I cannot verify its code.
 
 If you only use one computer, you can install Bibliogram on that computer and then access the instance through localhost.
 
