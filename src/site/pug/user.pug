@@ -37,6 +37,7 @@ html
 						| followed by
 					div.links
 						a(rel="alternate" type="application/rss+xml" href=`/u/${user.data.username}/rss.xml`) RSS
+						a(rel="noreferrer noopener" href=`https://www.instagram.com/${user.data.username}`) instagram.com
 
 			main#timeline.timeline
 				each page, pageIndex in user.timeline.pages

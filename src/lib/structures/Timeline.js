@@ -2,12 +2,13 @@ const RSS = require("rss")
 const constants = require("../constants")
 const config = require("../../../config")
 const TimelineImage = require("./TimelineImage")
+const InstaCache = require("../cache")
 const collectors = require("../collectors")
-require("../testimports")(constants, TimelineImage)
+require("../testimports")(constants, collectors, TimelineImage, InstaCache)
 
 /** @param {any[]} edges */
 function transformEdges(edges) {
-	return edges.map(e => new TimelineImage(e.node))
+	return edges.map(e => collectors.createShortcodeFromData(e.node, false))
 }
 
 class Timeline {

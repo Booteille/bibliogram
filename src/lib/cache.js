@@ -1,10 +1,13 @@
-class InstaCache {
+/**
+ * @template T
+ */
+class TtlCache {
 	/**
-	 * @property {number} ttl time to keep each resource in milliseconds
+	 * @param {number} ttl time to keep each resource in milliseconds
 	 */
 	constructor(ttl) {
 		this.ttl = ttl
-		/** @type {Map<string, {data: any, time: number}>} */
+		/** @type {Map<string, {data: T, time: number}>} */
 		this.cache = new Map()
 	}
 
@@ -18,10 +21,23 @@ class InstaCache {
 	/**
 	 * @param {string} key
 	 */
-	get(key) {
-		return this.cache.get(key).data
+	has(key) {
+		return this.cache.has(key)
 	}
 
+	/**
+	 * @param {string} key
+	 */
+	get(key) {
+		const value = this.cache.get(key)
+		if (value) return value.data
+		else return null
+	}
+
+	/**
+	 * @param {string} key
+	 * @param {number} factor factor to divide the result by. use 60*1000 to get the ttl in minutes.
+	 */
 	getTtl(key, factor = 1) {
 		return Math.max((Math.floor(Date.now() - this.cache.get(key).time) / factor), 0)
 	}
@@ -32,6 +48,15 @@ class InstaCache {
 	 */
 	set(key, data) {
 		this.cache.set(key, {data, time: Date.now()})
+	}
+}
+
+class RequestCache extends TtlCache {
+	/**
+	 * @param {number} ttl time to keep each resource in milliseconds
+	 */
+	constructor(ttl) {
+		super(ttl)
 	}
 
 	/**
@@ -67,4 +92,5 @@ class InstaCache {
 	}
 }
 
-module.exports = InstaCache
+module.exports.TtlCache = TtlCache
+module.exports.RequestCache = RequestCache

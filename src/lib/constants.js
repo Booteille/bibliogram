@@ -4,8 +4,10 @@ module.exports = {
 
 	external: {
 		timeline_query_hash: "e769aa130647d2354c40ea6a439bfc08",
+		shortcode_query_hash: "2b0673e0dc4580674a88d426fe00ea90",
 		timeline_fetch_first: 12,
-		username_regex: "[\\w.]+"
+		username_regex: "[\\w.]+",
+		shortcode_regex: "[\\w-]+"
 	},
 
 	symbols: {

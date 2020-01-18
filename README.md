@@ -12,17 +12,18 @@ See also: [Invidious, a front-end for YouTube.](https://github.com/omarroth/invi
 - [x] Infinite scroll
 - [x] User memory cache
 - [x] RSS (latest 12 posts)
+- [x] View post
+- [x] Galleries
+- [ ] Videos
+- [ ] Galleries of videos
 - [ ] Image disk cache
-- [ ] View post
 - [ ] Clickable usernames and hashtags
 - [ ] Homepage
 - [ ] Proper error checking
 - [ ] Optimised for mobile
 - [ ] Favicon
 - [ ] Settings (e.g. data saving)
-- [ ] Galleries
 - [ ] List view
-- [ ] Videos
 - [ ] IGTV
 - [ ] Public API
 - [ ] Rate limiting
@@ -65,3 +66,4 @@ Bibliogram is now running on `0.0.0.0:10407`.
 
 - `/u/{username}` - load a user's profile and timeline
 - `/u/{username}/rss.xml` - get the RSS feed for a user
+- `/p/{shortcode}` - load a post

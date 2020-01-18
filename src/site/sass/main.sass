@@ -33,9 +33,7 @@ body
 
 .profile-overview
 	text-align: center
-	z-index: 1
 	position: relative
-	contain: paint // </3 css
 	line-height: 1
 
 	@media screen and (max-width: $layout-a-max)
@@ -50,29 +48,43 @@ body
 	.profile-sticky
 		position: sticky
 		top: 0
-		bottom: 0
+		height: 100vh
+		box-sizing: border-box
+		overflow-y: auto
 		padding: 10px
 
-	.pfp
-		margin: 25px 0
+		@media screen and (max-width: $layout-a-max)
+			height: unset
 
-	.full-name
-		margin: 0 0 8px
-		font-size: 30px
+		.pfp
+			margin: 25px 0
 
-	.username
-		margin: 0
-		font-size: 20px
-		font-weight: normal
+		.full-name
+			margin: 0 0 8px
+			font-size: 30px
 
-	.profile-counter
-		line-height: 1.3
+		.username
+			margin: 0
+			font-size: 20px
+			font-weight: normal
 
-		.count
-			font-weight: bold
+		.profile-counter
+			line-height: 1.3
 
-	.links
-		margin-top: 20px
+			.count
+				font-weight: bold
+
+		.links
+			margin-top: 20px
+			display: flex
+			flex-wrap: wrap
+			justify-content: center
+
+			a
+				margin: 5px
+
+		> *:last-child
+			margin-bottom: 10px // because padding-bottom on parent doesn't seem to work.
 
 .timeline
 	--image-size: 260px
@@ -125,17 +137,92 @@ body
 		flex-wrap: wrap
 		margin: 0 auto
 
-		.image
+		@mixin sized()
+			width: $image-size
+			height: $image-size
+
+		.sized-link
 			$margin: 5px
 
-			background-color: rgba(40, 40, 40, 0.25)
 			margin: $margin
-			max-width: $image-size
-			max-height: $image-size
-			width: 100%
-			height: 100%
+			color: #111
+			background-color: rgba(40, 40, 40, 0.25)
+			text-decoration: none
+			@include sized
 
 			&:hover
 				$border-width: 3px
 				margin: $margin - $border-width
 				border: $border-width solid #111
+
+			.sized-image
+				@include sized
+
+.post-page
+	background-color: #6a6b71
+
+	.post-page-divider
+		display: grid
+		grid-template-columns: 360px auto
+		max-width: 1200px
+		margin: 0 auto
+		min-height: 100vh
+
+		.description-section
+			display: grid
+			align-items: start
+			align-content: normal
+			background-color: #eee
+			position: sticky
+			top: 0
+			height: 100vh
+			overflow-y: auto
+			box-sizing: border-box
+
+			.user-header
+				display: flex
+				align-items: center
+				justify-content: center
+				background-color: #b3b3b3
+				padding: 10px
+
+				.pfp
+					$size: 40px
+
+					width: $size
+					height: $size
+					margin-right: 10px
+					background-color: rgba(40, 40, 40, 0.25)
+
+				.name
+					font-size: 20px
+					color: black
+					text-decoration: none
+
+					&:hover
+						text-decoration: underline
+
+			.description
+				margin: 12px
+				white-space: pre-line
+				font-size: 20px
+				line-height: 1.4
+
+		.images-gallery
+			display: flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			background-color: #262728
+			padding: 10px
+
+			.sized-image
+				color: #eee
+				background-color: #3b3c3d
+				max-height: 94vh
+				max-width: 100%
+				width: auto
+				height: auto
+
+				&:not(:last-child)
+					margin-bottom: 10px

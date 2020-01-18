@@ -9,6 +9,11 @@
  */
 
 /**
+ * @typedef GraphEdgesChildren
+ * @type {{edges: {node: GraphChild}[]}}
+ */
+
+/**
  * @typedef PagedEdges<T>
  * @property {number} count
  * @property {{has_next_page: boolean, end_cursor: string}} page_info
@@ -46,6 +51,7 @@
 
 /**
  * @typedef GraphImage
+ * @property {string} __typename
  * @property {string} id
  * @property {GraphEdgesText} edge_media_to_caption
  * @property {string} shortcode
@@ -55,10 +61,39 @@
  * @property {GraphEdgeCount} edge_media_preview_like
  * @property {{width: number, height: number}} dimensions
  * @property {string} display_url
- * @property {{id: string, username: string}} owner
+ * @property {BasicOwner|ExtendedOwner} owner
  * @property {string} thumbnail_src
  * @property {Thumbnail[]} thumbnail_resources
  * @property {string} accessibility_caption
+ * @property {GraphEdgesChildren} edge_sidecar_to_children
+ */
+
+ /**
+ * @typedef GraphChild
+ * @property {string} __typename
+ * @property {string} id
+ * @property {string} shortcode
+ * @property {{width: number, height: number}} dimensions
+ * @property {string} display_url
+ * @property {Thumbnail[]} display_resources
+ * @property {string} accessibility_caption
+ * @property {boolean} is_video
+ */
+
+/**
+ * @typedef BasicOwner
+ * From user HTML response.
+ * @property {string} id
+ * @property {string} username
+ */
+
+/**
+ * @typedef ExtendedOwner
+ * From post API response.
+ * @property {string} id
+ * @property {string|null} profile_pic_url
+ * @property {string} username
+ * @property {string} full_name
  */
 
 module.exports = {}

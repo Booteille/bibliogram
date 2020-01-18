@@ -1,0 +1,20 @@
+- const numberFormat = new Intl.NumberFormat().format
+
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title= `${post.getIntroduction()} | Bibliogram`
+		link(rel="stylesheet" type="text/css" href="/static/css/main.css")
+		script(src="/static/js/pagination.js" type="module")
+	body.post-page
+		main.post-page-divider
+			section.description-section
+				header.user-header
+					img(src=post.proxyOwnerProfilePicture width=150 height=150 alt="").pfp
+					a.name(href=`/u/${post.extendedOwner.username}`)= `${post.extendedOwner.full_name} (@${post.extendedOwner.username})`
+				p.description= post.getCaption()
+			section.images-gallery
+				for image in post.getChildren()
+					img(src=image.proxyDisplayURL alt=image.getAlt() width=image.data.dimensions.width height=image.data.dimensions.height).sized-image

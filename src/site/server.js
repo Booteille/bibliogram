@@ -23,4 +23,7 @@ subdirs("pug", (err, dirs) => {
 	require("pinski/plugins").setInstance(pinski)
 
 	Object.assign(passthrough, pinski.getExports())
+
+	console.log("Server started")
+	require("./repl")
 })
